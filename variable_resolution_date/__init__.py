@@ -14,10 +14,10 @@ lexicographical order corresponds to the chronological order:
 
 import datetime
 
+import re
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.encoding import force_text
-import re
 
 VARIABLE_RESOLUTION_DATE_RE = re.compile(r'^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$')
 VARIABLE_RESOLUTION_DATE_LENGTH = 10
@@ -32,7 +32,7 @@ def validate_variable_resolution_date(value):
         try:
             datetime.date(year, month, day)
             return
-        except:
+        except Exception:
             pass
     raise ValidationError('Enter a year, year-month, or year-month-day.')
 

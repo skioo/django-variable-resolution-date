@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='django-variable-resolution-date',
-    version='0.1.5',
+    version='0.1.6',
     description='A django field that can represent either a year, or a year and a month, or a full calendar date',
     long_description='',
     author='Nicholas Wolff',
@@ -14,14 +14,14 @@ setup(
         'variable_resolution_date',
     ],
     install_requires=[
-        'Django>=1.10',
+        'Django>=1.11',
     ],
     licence='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
-        'Framework :: Django :: 1.10',
         'Framework :: Django :: 1.11',
+        'Framework :: Django :: 2.0',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',

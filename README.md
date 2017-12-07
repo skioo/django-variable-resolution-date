@@ -4,7 +4,7 @@ django-variable-resolution-date
 [![Build Status](https://travis-ci.org/skioo/django-variable-resolution-date.svg?branch=master)](https://travis-ci.org/skioo/django-variable-resolution-date)
 [![PyPI version](https://badge.fury.io/py/django-variable-resolution-date.svg)](https://badge.fury.io/py/django-variable-resolution-date)
 [![Requirements Status](https://requires.io/github/skioo/django-variable-resolution-date/requirements.svg?branch=master)](https://requires.io/github/skioo/django-variable-resolution-date/requirements/?branch=master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
 A django field that can represent either a year, or a year and a month, or a full calendar date.
