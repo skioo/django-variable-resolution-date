@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='django-variable-resolution-date',
-    version='0.1.6',
+    version='0.1.7',
     description='A django field that can represent either a year, or a year and a month, or a full calendar date',
     long_description='',
     author='Nicholas Wolff',

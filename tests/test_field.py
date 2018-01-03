@@ -18,14 +18,14 @@ class VariableResolutionDateFieldTest(TestCase):
     def test_it_cannot_create_vrd_with_invalid_full_date(self):
         with raises(ValidationError) as ex:
             ClubMember(name='dave', member_since='1997-02-29').full_clean()
-        assert ex.value.messages == ['Enter a year, year-month, or year-month-day.']
+        assert ex.value.messages == ['Must be a valid year, year-month, or year-month-day.']
 
     def test_it_cannot_create_vrd_with_extra_characters(self):
         with raises(ValidationError) as ex:
             ClubMember(name='earl', member_since='20001').full_clean()
-        assert ex.value.messages == ['Enter a year, year-month, or year-month-day.']
+        assert ex.value.messages == ['Must be a valid year, year-month, or year-month-day.']
 
     def test_it_cannot_create_vrd_with_month_day(self):
         with raises(ValidationError) as ex:
             ClubMember(name='fred', member_since='02-03').full_clean()
-        assert ex.value.messages == ['Enter a year, year-month, or year-month-day.']
+        assert ex.value.messages == ['Must be a valid year, year-month, or year-month-day.']

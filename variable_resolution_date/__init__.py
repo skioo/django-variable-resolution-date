@@ -23,22 +23,28 @@ VARIABLE_RESOLUTION_DATE_RE = re.compile(r'^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$')
 VARIABLE_RESOLUTION_DATE_LENGTH = 10
 
 
-def validate_variable_resolution_date(value):
+def parse(value):
+    """ returns a triple: year, month, day (month and day may be None) """
     match = VARIABLE_RESOLUTION_DATE_RE.match(force_text(value))
     if match:
         year = int(match.group(1))
-        month = int(match.group(2) or 1)
-        day = int(match.group(3) or 1)
+        month = int(match.group(2)) if match.group(2) else None
+        day = int(match.group(3)) if match.group(3) else None
         try:
-            datetime.date(year, month, day)
-            return
-        except Exception:
+            # Make sure the different parts taken together represent a valid date.
+            datetime.date(year, month or 1, day or 1)
+            return year, month, day
+        except ValueError:
             pass
-    raise ValidationError('Enter a year, year-month, or year-month-day.')
+    raise ValidationError('Must be a valid year, year-month, or year-month-day.')
+
+
+def validate(value):
+    parse(value)
 
 
 class VariableResolutionDateField(models.CharField):
-    default_validators = [validate_variable_resolution_date]
+    default_validators = [validate]
     description = 'A year, year-month, or year-month-day date'
 
     def __init__(self, *args, **kwargs):
